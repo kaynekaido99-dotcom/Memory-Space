@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — YOUR CLASS SECTION</title>
+  <!-- iOS & Android Home Screen Shortcut -->
+  <link rel="apple-touch-icon" href="icon.png?v=2">
+  <!-- High-Res Shortcut Icon for Android Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icon.png?v=2">
+  <!-- Standard Browser Tab Icon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png?v=2">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bp-grid" data-page="portfolio">
+
+  <header class="nav topbar">
+    <div class="container nav__inner">
+      <a href="portfolio.html" class="nav__brand">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+          stroke-linejoin="round" style="color:var(--teal)">
+          <rect x="10" y="10" width="12" height="12" rx="1.5" />
+          <path d="M13 10V5M19 10V5M13 27v-5M19 27v-5M10 13H5M10 19H5M27 13h-5M27 19h-5" />
+        </svg>
+        <span class="nav__brand-text">YOUR CLASS SECTION</span>
+        <span class="nav__meta mono">/ group album</span>
+      </a>
+      <div class="nav__actions">
+        <span class="nav__user mono"><span class="dot"></span><span class="nav__user-name"
+            id="userName">user</span></span>
+        <button type="button" class="btn btn--ghost" id="logoutBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" style="width:16px;height:16px">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <path d="M16 17l5-5-5-5" />
+            <path d="M21 12H9" />
+          </svg>
+          Log out
+        </button>
+        <div class="notification-center" id="notificationCenter">
+          <button type="button" class="notification-bell" id="notif-bell-btn" aria-label="Notifications"
+            aria-expanded="false" aria-controls="notif-panel">
+            <i class="fa-solid fa-bell" aria-hidden="true"></i>
+            <span class="notification-badge" id="notif-badge" aria-live="polite" hidden>0</span>
+          </button>
+          <section class="notification-panel" id="notif-panel" aria-label="Notifications" hidden>
+            <div class="notification-panel__header">
+              <h2>Notifications</h2>
+              <button type="button" id="notif-mark-all-read">Mark all as read</button>
+            </div>
+            <ul class="notification-list" id="notif-list" aria-live="polite"></ul>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="container topbar__sync">
+      <span class="sync-status-row">
+        <span class="sync-status mono" id="syncStatus">Syncing…</span>
+        <button type="button" class="btn--icon sync-refresh" id="syncNowButton" title="Sync now" aria-label="Sync now">
+          <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+        </button>
+      </span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome-panel bp-grid">
+      <p class="welcome-panel__eyebrow mono">// shared memory space</p>
+      <h1>Welcome to YOUR CLASS SECTION</h1>
+      <p class="welcome-panel__tagline">Building experiences, creating memories.</p>
+      <p class="welcome-panel__body">
+        "Welcome back, YOUR CLASS SECTION! Step inside to relive our best moments and share new ones together."
+      </p>
+      <div>
+        <div class="terms-trigger">
+          <button type="button" class="btn btn--ghost" id="termsOpen">Terms &amp; Conditions:</button>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="calendar-panel" aria-labelledby="calendarHeading">
+      <div class="calendar-panel__head">
+        <div>
+          <p class="calendar-panel__eyebrow mono">// group calendar</p>
+          <h2 id="calendarHeading">Calendar Events</h2>
+        </div>
+        <div class="calendar-panel__nav">
+          <button type="button" class="btn--icon" id="calendarPrev" aria-label="Previous month">&lsaquo;</button>
+          <span class="calendar-panel__month" id="calendarMonth"></span>
+          <button type="button" class="btn--icon" id="calendarNext" aria-label="Next month">&rsaquo;</button>
+        </div>
+      </div>
+      <form id="calendarForm" class="calendar-form">
+        <div class="calendar-form__fields">
+          <div class="field">
+            <label class="field__label" for="eventDate">Date</label>
+            <input class="field__input" type="date" id="eventDate" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="eventTime">Time</label>
+            <input class="field__input" type="time" id="eventTime" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="eventNote">Note</label>
+            <input class="field__input" type="text" id="eventNote" placeholder="Add events, Trip, meetup..." required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn--primary" id="calendarSave">Add to calendar</button>
+      </form>
+      <div class="calendar-events" id="calendarEvents" aria-live="polite"></div>
+    </section>
+
+    <section class="composer">
+      <div class="composer__head">
+        <p class="calendar-panel__eyebrow mono">// group memory</p>
+        <h2>Add album</h2>
+        <span class="mono">visible to the whole group</span>
+      </div>
+      <form id="composerForm">
+        <div class="composer__fields">
+          <div class="field">
+            <label class="field__label" for="memoryTitle">Album name</label>
+            <input class="field__input" type="text" id="memoryTitle" placeholder="e.g. Summer trip" maxlength="100"
+              required>
+          </div>
+        </div>
+        <div class="composer__actions">
+          <button type="submit" class="btn btn--primary">Create album</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="memories">
+      <div class="memories__header">
+        <div>
+          <h2>Our memories</h2>
+          <p class="memories__description">Create albums to organize photos. Albums are stored in this space.</p>
+        </div>
+        <span class="memories__header-meta">
+          <span class="memories__count mono" id="memoryCount">0 memories</span>
+        </span>
+      </div>
+      <div class="memory-grid" id="memoryGrid"></div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="confirmOverlay">
+    <div class="modal">
+      <h3 id="confirmTitle">Are you sure?</h3>
+      <p id="confirmBody"></p>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" id="confirmCancel">Cancel</button>
+        <button type="button" class="btn btn--danger-ghost" id="confirmOk">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay album-rename-overlay" id="albumRenameOverlay" aria-hidden="true">
+    <form class="modal album-rename-modal" id="albumRenameForm" role="dialog" aria-modal="true"
+      aria-labelledby="albumRenameTitle">
+      <h3 id="albumRenameTitle">Rename album</h3>
+      <label class="field__label" for="albumRenameInput">Album name</label>
+      <input class="field__input" type="text" id="albumRenameInput" maxlength="100" required>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" id="albumRenameCancel">Cancel</button>
+        <button type="submit" class="btn btn--primary" id="albumRenameSave">Save name</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-overlay album-modal-overlay" id="albumModal" aria-hidden="true">
+    <section class="modal album-modal" role="dialog" aria-modal="true" aria-labelledby="albumModalTitle">
+      <div class="album-modal__header">
+        <div>
+          <h2 id="albumModalTitle">Album</h2>
+          <p id="albumModalDescription"></p>
+        </div>
+        <button type="button" class="btn--icon" id="albumModalClose" aria-label="Close album">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+      <button type="button" class="btn btn--primary album-add-picture" id="albumAddPicture">
+        <span aria-hidden="true">+</span> Add picture
+      </button>
+      <div class="album-photo-grid" id="albumPhotoGrid"></div>
+    </section>
+  </div>
+
+  <div class="modal-overlay album-upload-overlay" id="albumUploadOverlay" aria-hidden="true">
+    <form id="albumUploadForm" class="modal album-upload-modal album-upload-form" role="dialog" aria-modal="true"
+      aria-labelledby="albumUploadTitle">
+      <div class="album-upload-modal__header">
+        <div>
+          <h2 id="albumUploadTitle">Add pictures</h2>
+          <p id="albumUploadAlbumName"></p>
+        </div>
+        <button type="button" class="btn--icon" id="albumUploadClose" aria-label="Close upload dialog">&times;</button>
+      </div>
+      <label class="field__label" for="albumPhotoCaption">Caption (optional)</label>
+      <input class="field__input" type="text" id="albumPhotoCaption" maxlength="120"
+        placeholder="Add a caption to these photos">
+      <label class="field__label" for="albumPhotoFiles">Choose photos</label>
+      <div class="album-upload-form__actions">
+        <input class="field__input" type="file" id="albumPhotoFiles" accept="image/*" multiple required>
+        <button type="submit" class="btn btn--primary" id="albumUploadButton">Upload</button>
+      </div>
+      <p class="album-upload-form__hint" id="albumUploadHint">Select one or more photos to add to this album.</p>
+    </form>
+  </div>
+
+  <div class="modal-overlay terms-modal-overlay" id="termsOverlay" aria-hidden="true">
+    <section class="modal terms-modal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+      <div class="terms-modal__header">
+        <div>
+          <p class="calendar-panel__eyebrow mono">// group policy</p>
+          <h2 id="termsTitle">Terms &amp; Conditions: Image Posting &amp; Link Sharing</h2>
+        </div>
+        <button type="button" class="btn--icon" id="termsClose" aria-label="Close terms and conditions">&times;</button>
+      </div>
+      <div class="terms-modal__content">
+        <h3>1. Photo Uploads &amp; Content Ownership</h3>
+        <ul>
+          <li><strong>Ownership Retained:</strong> You keep full ownership and copyright of any photos,
+            images, or
+            stories you upload to this shared memory space.</li>
+          <li><strong>Display License:</strong> By uploading content, you grant the platform and group
+            members a limited
+            license to store, view, and display your photos exclusively within this shared group space.
+          </li>
+          <li><strong>Content Authority:</strong> You represent and warrant that you own or have the
+            necessary rights
+            and permissions for any photo you upload, and that your uploads do not violate third-party
+            privacy or
+            copyright laws.</li>
+        </ul>
+        <h3>2. Link Sharing &amp; Access Control</h3>
+        <ul>
+          <li><strong>Exclusive Group Access:</strong> This portfolio link and its content are intended
+            solely for
+            authorized members of <strong>YOUR CLASS SECTION</strong>.</li>
+          <li><strong>Sharing Restriction:</strong> Members must not publicly distribute, post, or share
+            direct access
+            links, shared login credentials, or private member memories outside the intended group
+            without prior consent
+            from the content owner.</li>
+          <li><strong>Account Responsibility:</strong> Each member is responsible for activity conducted
+            under their
+            session and must log out when using shared or public devices.</li>
+        </ul>
+        <h3>3. Acceptable Use &amp; Content Guidelines</h3>
+        <ul>
+          <li><strong>Respectful Sharing:</strong> Uploaded memories, event notes, and media must remain
+            appropriate,
+            respectful, and free from offensive or unlawful material.</li>
+          <li><strong>Content Removal:</strong> The platform administrators reserve the right to remove
+            any content or
+            revoke access if sharing guidelines or group privacy policies are violated.</li>
+        </ul>
+        <h3>4. Photo Quality, Formats &amp; Metadata</h3>
+        <ul>
+          <li><strong>Allowed Formats &amp; Compression:</strong> Uploads should follow standard image
+            formats (e.g., JPEG, PNG, HEIC). To optimize performance and storage, the platform may
+            automatically compress or resize images without altering the original context.</li>
+          <li><strong>Exif &amp; Location Data:</strong> Photos taken on modern devices often contain
+            Embedded Metadata (EXIF data), including timestamp, device type, and GPS location. By
+            uploading, you acknowledge that metadata attached to your photos may be accessible or
+            processed within the shared space unless removed prior to uploading.</li>
+        </ul>
+        <h3>5. Takedown Requests &amp; Content Deletion</h3>
+        <ul>
+          <li><strong>User-Initiated Deletion:</strong> You may request or directly perform the deletion
+            of your own uploaded images at any time. Upon deletion, the image will no longer be visible
+            to group members.</li>
+          <li><strong>Right to Request Removal:</strong> If an image depicts you or a family member and
+            you wish to have it removed from the shared space, you may submit a takedown request to the
+            administrators. Takedown requests will be processed promptly out of respect for member
+            privacy.</li>
+          <li><strong>Archival Backups:</strong> Residual or backup copies of deleted content may
+            temporarily persist in secure system backups for a limited period before being permanently
+            purged.</li>
+        </ul>
+        <h3>6. Third-Party Links &amp; External Media</h3>
+        <ul>
+          <li><strong>External Hyperlinks:</strong> If members post links to third-party platforms
+            (e.g., Google Drive, YouTube, social media, external photo albums), YOUR CLASS SECTION is not
+            responsible for the privacy practices, uptime, or content found on those external sites.
+          </li>
+          <li><strong>External Link Access:</strong> Members who share external links must ensure the
+            permission settings on those third-party platforms align with the privacy expectations of
+            the group.</li>
+        </ul>
+        <h3>7. Intellectual Property &amp; Fair Use</h3>
+        <ul>
+          <li><strong>Non-Commercial Use:</strong> All media and shared links within the YOUR CLASS SECTION
+            portal are intended strictly for personal, nostalgic, and community-building purposes.
+            Commercial exploitation, reselling, or unauthorized reproduction of any group photo or
+            asset is strictly prohibited.</li>
+          <li><strong>AI &amp; Data Scraping Prohibition:</strong> Automated scraping, downloading in
+            bulk via automated bots, or using shared images/data to train artificial intelligence or
+            machine learning models without express group consent is prohibited.</li>
+        </ul>
+        <h3>8. Disclaimer of Liability &amp; Technical Failures</h3>
+        <ul>
+          <li><strong>Service Availability:</strong> While administrators endeavor to maintain
+            continuous access to the shared memory space, YOUR CLASS SECTION does not guarantee uninterrupted
+            service or protection against unforeseen data loss. Members are encouraged to keep personal
+            backups of their original photos.</li>
+          <li><strong>Unauthorized Access:</strong> While security measures are implemented to restrict
+            link access to authorized YOUR CLASS SECTION members, the platform cannot be held liable for
+            unauthorized downloads or sharing resulting from a member failing to secure their
+            credentials or device.</li>
+        </ul>
+        <div class="modal__actions">
+          <button type="button" class="btn btn--primary" id="termsDone">I understand</button>
+        </div>
+    </section>
+  </div>
+
+  <div class="image-modal-overlay" id="imageModal" aria-hidden="true">
+    <div class="image-modal" role="dialog" aria-modal="true" aria-label="Expanded memory photo">
+      <button type="button" class="image-modal__close" id="imageModalClose" aria-label="Close image preview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <img id="imageModalPhoto" src="" alt="">
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="site-footer">
+    <div class="icon-link">
+      <!-- Existing Messenger Link -->
+      <a href="YOUR_LINK" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-facebook-messenger"></i>
+      </a>
+
+      <!-- Existing Facebook Link -->
+      <a href="YOUR_LINK" target="_blank" rel="noopener noreferrer" title="UNIVERSITY Facebook Page">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+
+      <!-- NEW: Developer / Portfolio Link -->
+      <a href="YOUR_LINK" target="_blank" rel="noopener noreferrer" title="Developer Profile">
+        <i class="fa-solid fa-code"></i>
+      </a>
+    </div>
+
+    <div class="container site-footer__inner">
+      <span class="mono">"YOUR CLASS SECTION" — a class group album</span>
+      <span class="mono">Shared local account · single sign-in</span>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

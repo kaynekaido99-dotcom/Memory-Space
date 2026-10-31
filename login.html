@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — YOUR CLASS SECTION</title>
+  <!-- iOS & Android Home Screen Shortcut -->
+  <link rel="apple-touch-icon" href="icon.png?v=2">
+  <!-- High-Res Shortcut Icon for Android Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icon.png?v=2">
+  <!-- Standard Browser Tab Icon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png?v=2">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bp-grid" data-page="login">
+
+  <div class="auth">
+    <div class="auth__panel">
+      <div class="auth__titlebar">
+        <span class="auth__dot auth__dot--a"></span>
+        <span class="auth__dot auth__dot--b"></span>
+        <span class="auth__dot auth__dot--c"></span>
+        <span class="auth__titlebar-label mono">YOUR CLASS SECTION — sign in</span>
+      </div>
+
+      <div class="auth__body">
+        <div class="auth__logo">
+          <svg viewBox="0 0 32 32" fill="none" stroke="#4FD1C5" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="10" y="10" width="12" height="12" rx="1.5" />
+            <path d="M13 10V5M19 10V5M13 27v-5M19 27v-5M10 13H5M10 19H5M27 13h-5M27 19h-5" />
+          </svg>
+        </div>
+        <h1 class="auth__heading">Welcome back</h1>
+        <p class="auth__subheading">Sign in with your account to access the portfolio.</p>
+
+        <div class="google-signin" aria-label="Sign in options">
+          <!-- Google Sign-In Configurations -->
+          <div id="g_id_onload" data-client_id="CHANGE_ME" data-context="signin" data-ux_mode="popup"
+            data-callback="handleCredentialResponse" data-auto_prompt="false">
+          </div>
+
+          <!-- This renders the official secure Google button -->
+          <div class="g_id_signin" data-type="standard" data-shape="pill" data-text="signin_with" data-size="large"
+            data-logo_alignment="left" data-width="350">
+          </div>
+          <button type="button" class="facebook-signin" id="facebookSignIn">
+            <svg class="facebook-signin__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M24 12a12 12 0 1 0-13.875 11.85v-8.38H7.078V12h3.047V9.356c0-3.007 1.792-4.668 4.533-4.668 1.312 0 2.686.234 2.686.234v2.953h-1.513c-1.49 0-1.956.925-1.956 1.874V12h3.328l-.532 3.47h-2.796v8.38A12.003 12.003 0 0 0 24 12Z" />
+            </svg>
+            <span>Sign in with Facebook</span>
+          </button>
+          <p class="google-signin__status" id="loginError" role="alert"></p>
+        </div>
+
+        <a href="index.html" class="auth__back">Back to home</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+</body>
+
+</html>
