@@ -4,7 +4,7 @@ A shared digital memory space for a class, batch, or group. Members sign in with
 
 There is **no server to run and no database to pay for**. The frontend is plain HTML/CSS/JS (host it free on GitHub Pages), and **Google Drive + Google Apps Script** act as the backend and database.
 
-> **Live demo:** `https://<your-username>.github.io/<your-repo>/`
+
 
 ---
 
