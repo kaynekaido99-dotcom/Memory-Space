@@ -292,5 +292,5 @@ Issues and pull requests are welcome. Please open an issue first to discuss majo
 
 ## License
 
- [MIT](https://choosealicense.com/licenses/mit/)) and add a `LICENSE` file.
+ [MIT](https://choosealicense.com/licenses/mit/))  `LICENSE`
 
