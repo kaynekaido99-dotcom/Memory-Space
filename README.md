@@ -1,6 +1,6 @@
 # YOUR CLASS SECTION — Group Memory Portfolio
 
-![screenshot](https://github.com/kaynekaido99-dotcom/Memory-Space/assets/...)<img width="1160" height="902" alt="image" src="https://github.com/user-attachments/assets/4eefed15-e5d6-4f2f-a2a2-f68023a0db39" />
+!<img width="1160" height="902" alt="image" src="https://github.com/user-attachments/assets/4eefed15-e5d6-4f2f-a2a2-f68023a0db39" />
 
 
 A shared digital memory space for a class, batch, or group. Members sign in with **Google** or **Facebook**, then upload photos into albums, react, comment, and add events to a shared calendar. A bell icon notifies everyone when someone else posts something new.
