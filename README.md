@@ -1,5 +1,10 @@
 # YOUR CLASS SECTION — Group Memory Portfolio
 
+<img width="1383" height="952" alt="Screenshot 2026-11-05 133017" src="https://github.com/user-attachments/assets/1e33da94-0117-4ff2-8dca-cd80ffb5d6ba" />
+<img width="628" height="555" alt="Screenshot 2026-11-05 133050" src="https://github.com/user-attachments/assets/e8ec755d-e867-47f8-9d8f-38328a1c29cb" />
+<img width="449" height="513" alt="Screenshot 2026-11-05 132709" src="https://github.com/user-attachments/assets/3669d37b-2864-4027-a2e7-c6eef22b87f5" />
+<img width="1104" height="483" alt="Screenshot 2026-11-05 132831" src="https://github.com/user-attachments/assets/0c11f314-3547-4eac-adc3-57e712a3d619" />
+
 
 
 
